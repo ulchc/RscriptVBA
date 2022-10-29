@@ -80,7 +80,7 @@ of the rest of procedure.*
 '    Optionally set {InstallIfRequired} = True to install packages
 '    with UDF Require_Packages() if they're not installed. If choosing
 '    this option, the function will return False if there was an
-'    an installation failure when a package was not previously installed.
+'    an installation failure.
 
 '    Attach_Libraries("dplyr, ggplot2") is written to the script as:
 '       library('dplyr', lib.loc = Sys.getenv('R_LIBS_USER'));
