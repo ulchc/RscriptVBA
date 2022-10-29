@@ -1,16 +1,51 @@
 
-#  RscriptVBA ¬ github.com/ulchc (10-29-22)
-
+#  RscriptVBA ¬ github.com/ulchc
 
 ## Overview
+<a href='https://github.com/ulchc/RscriptVBA'><img src='figures/Example.gif' align="right" height="650" /></a>
 
-
-Locate RScript 's path automatically, manage packages, run R code contained
+Locate RScript's path automatically, manage packages, run R code contained
 in a cell value, and read console output right into Excel's immediate window,
-with no additional set up beyond having R installed.'
+with no additional set up beyond having R installed.
 
-<a href='https://github.com/ulchc/RscriptVBA'><img src='figures/Example.gif' align="right" height="750" /></a>
+##  Usage Summary
 
+ WriteRunRscript() <br/>
+ > To run R commands provided as a string
+
+ CaptureRscriptOutput() <br/>
+ > To run R commands and return the resulting R console output
+
+ Attach_Libraries() <br/>
+ > To append the local user's lib.loc to library() commands  
+
+ Require_Packages() <br/>
+ > To install R packages from VBA
+
+ WinShell_Rscript() <br/>
+ > To call Rscript by manually specifying it's path and a saved script
+ 
+<br/><br/><br/><br/>
+  
+##  Examples / Run Testing
+
+``` VBA
+ Example1()
+
+'   Should return a tibble and lm summary based on the diamonds
+'   data from ggplot2.
+
+ Example2()
+
+'   Should install and reference the gbm, MASS, dplyr packages,
+'   then run a gbm model based on the Boston dataset from MASS.
+
+ VerifyReturnValues()
+
+'   Should print system information consistent with the local user
+'   to the immediate window.
+
+```
 
 ## Public Variables
 
@@ -30,26 +65,6 @@ Public Enum RsVisibility
 End Enum
 
 '   Options to toggle the visibilty of the R scripting window.
-
-```
-
-##  Examples / Run Testing
-
-``` VBA
- Example1()
-
-'   Should return a tibble and lm summary based on the diamonds
-'   data from ggplot2.
-
- Example2()
-
-'   Should install and reference the gbm, MASS, dplyr packages,
-'   then run a gbm model based on the Boston dataset from MASS.
-
- VerifyReturnValues()
-
-'   Should print system information consistent with the local user
-'   to the immediate window.
 
 ```
 
