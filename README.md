@@ -30,7 +30,7 @@ with no additional set up beyond having R installed.
  WinShell_Rscript() <br/>
  > To call Rscript by manually specifying it's path and a saved script
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 
 ## Public Variables
