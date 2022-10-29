@@ -32,7 +32,7 @@ Option Explicit
 ' WinShell_Rscript() <br/>
 ' > To call Rscript by manually specifying it's path and a saved script
 '
-'<br/><br/><br/><br/>
+'<br/><br/><br/>
 '
 '===============================================================================================================================================================================================================================================================
 '## Public Variables
@@ -59,10 +59,11 @@ End Enum
 '##  Main Functions & Subs
 '===============================================================================================================================================================================================================================================================
 '
-'Note: Although libraries or package installation commands can be directly
-'written into a script, it is preferable to use UDF's Attach_Libraries() or
-'Require_Packages() in VABA so that packages which force the restart of an R
-'session can be installed in R sessions independent of the rest of procedure.
+'*Note: Although libraries or package installation commands can be directly
+'written into an R script, it is easier to use Attach_Libraries() to automatically
+'specify the lib.loc (as an IDE would) and Require_Packages() so that packages
+'which force the restart of an R session can be installed in R sessions independent
+'of the rest of procedure.*
 '
 '----------------------------------------------------------------``` VBA
 ' Attach_Libraries( _
