@@ -1,14 +1,19 @@
 
-#  RscriptVBA ¬ github.com/ulchc
+#  RscriptVBA ¬ github.com/ulchc (10-29-22)
+
 
 ## Overview
+
+
 <a href='https://github.com/ulchc/RscriptVBA'><img src='figures/Example.gif' align="right" height="650" /></a>
 
-Locate RScript's path automatically, manage packages, run R code contained
+Locate RScript 's path automatically, manage packages, run R code contained
 in a cell value, and read console output right into Excel's immediate window,
 with no additional set up beyond having R installed.
 
+
 ##  Usage Summary
+
 
  WriteRunRscript() <br/>
  > To run R commands provided as a string
@@ -17,35 +22,16 @@ with no additional set up beyond having R installed.
  > To run R commands and return the resulting R console output
 
  Attach_Libraries() <br/>
- > To append the local user's lib.loc to library() commands  
+ > To append the local user's lib.loc to library() commands
 
  Require_Packages() <br/>
  > To install R packages from VBA
 
  WinShell_Rscript() <br/>
  > To call Rscript by manually specifying it's path and a saved script
- 
+
 <br/><br/><br/><br/>
-  
-##  Examples / Run Testing
 
-``` VBA
- Example1()
-
-'   Should return a tibble and lm summary based on the diamonds
-'   data from ggplot2.
-
- Example2()
-
-'   Should install and reference the gbm, MASS, dplyr packages,
-'   then run a gbm model based on the Boston dataset from MASS.
-
- VerifyReturnValues()
-
-'   Should print system information consistent with the local user
-'   to the immediate window.
-
-```
 
 ## Public Variables
 
@@ -53,7 +39,7 @@ with no additional set up beyond having R installed.
 Public GlobalLoadLibraries As String
 
 '   Stores the sequence of R commands to be appended to the start of
-'   a script ran with WriteRunRScript() or CaptureRscriptOutput() when
+'   a script ran with WriteRunRscript() or CaptureRscriptOutput() when
 '   using Attach_Libraries().
 
 ```
@@ -71,10 +57,11 @@ End Enum
 ##  Main Functions & Subs
 
 
-Note: Although libraries or package installation commands can be directly
-written into a script, it is preferable to use UDF's Attach_Libraries() or
-Require_Packages() in VABA so that packages which force the restart of an R
-session can be installed in R sessions independent of the rest of procedure.
+*Note: Although libraries or package installation commands can be directly
+written into an R script, it is easier to use Attach_Libraries() to automatically 
+specify the lib.loc (as an IDE would) and Require_Packages() so that packages 
+which force the restart of an R session can be installed in R sessions independent 
+of the rest of procedure.*
 
 ``` VBA
  Attach_Libraries( _
@@ -87,7 +74,7 @@ session can be installed in R sessions independent of the rest of procedure.
 '    include the lib.loc of the local user as an IDE would. Stores
 '    the commands in the public variable GlobalLoadLibraries, and
 '    then appends them to the start of {ScriptContents} prior to being
-'    written to an executable .R file with WriteRunRScript() or
+'    written to an executable .R file with WriteRunRscript() or
 '    CaptureRscriptOutput().
 
 '    Optionally set {InstallIfRequired} = True to install packages
@@ -128,7 +115,7 @@ to include the local user's lib.loc in the R library() command.
 
 ```
 ``` VBA
- WriteRunRScript( _
+ WriteRunRscript( _
      ScriptContents As String, _
      Optional RscriptVisibility As RsVisibility = RsMinimized, _
      Optional PreserveScriptFile As Boolean = False, _
@@ -285,5 +272,25 @@ to include the local user's lib.loc in the R library() command.
  MyOS()
 
 '   Returns "Windows" or "Mac".
+
+```
+
+##  Examples / Run Testing
+
+``` VBA
+ Example1()
+
+'   Should return a tibble and lm summary based on the diamonds
+'   data from ggplot2.
+
+ Example2()
+
+'   Should install and reference the gbm, MASS, dplyr packages,
+'   then run a gbm model based on the Boston dataset from MASS.
+
+ VerifyReturnValues()
+
+'   Should print system information consistent with the local user
+'   to the immediate window.
 
 ```
