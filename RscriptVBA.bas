@@ -84,7 +84,7 @@ End Enum
 ''    this option, the function will return False if there was an
 ''    an installation failure when a package was not previously installed.
 '
-'     Attach_Libraries("dplyr, ggplot2") is written to the script as:
+''    Attach_Libraries("dplyr, ggplot2") is written to the script as:
 ''       library('dplyr', lib.loc = Sys.getenv('R_LIBS_USER'));
 ''       library('ggplot2', lib.loc = Sys.getenv('R_LIBS_USER'));
 '
@@ -105,15 +105,6 @@ End Enum
 ''   After running the script to install packages, the user library folder
 ''   is checked again to verify all packages were successfully installed.
 ''   If there are any missing, False is returned, otherwise, True is returned.
-''
-'to include the local user's lib.loc in the R library() command.
-''   Allows for the verification / handling of package installation prior
-''   to running a script, and neccesary in cases where a package requires
-''   the restart of an R session which would terminate the Rscript run
-''   without having independetly installed packages with a seperate script.
-'
-''   Written to by Attach_Libraries() appended to scripts ran using
-''    as complete commands.
 '
 '----------------------------------------------------------------```
 '----------------------------------------------------------------``` VBA
@@ -282,7 +273,7 @@ End Enum
 '----------------------------------------------------------------``` VBA
 ' Example1()
 '
-''   Should return a tibble and lm summary based on the diamonds
+''   Should return a tibble and lm() summary based on the diamonds
 ''   data from ggplot2.
 '
 ' Example2()
