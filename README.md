@@ -2,7 +2,7 @@
 #  RscriptVBA ¬ github.com/ulchc
 
 ## Overview
-<a href='https://github.com/ulchc/RscriptVBA'><img src='figures/Example.gif' align="right" height="600" /></a>
+<a href='https://github.com/ulchc/RscriptVBA'><img src='figures/Example.gif' align="right" height="650" /></a>
 
 Locate RScript's path automatically, manage packages, run R code contained
 in a cell value, and read console output right into Excel's immediate window,
