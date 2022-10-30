@@ -1,7 +1,7 @@
 Attribute VB_Name = "RScriptVBA"
 Option Explicit
 '===============================================================================================================================================================================================================================================================
-'#  RscriptVBA Â¬ github.com/ulchc (10-29-22)
+'#  RscriptVBA ¬ github.com/ulchc (10-29-22)
 '===============================================================================================================================================================================================================================================================
 '===============================================================================================================================================================================================================================================================
 '## Overview
@@ -374,7 +374,6 @@ Function Require_Packages( _
     CommaSepPackList As String, _
     Optional Verbose As Boolean = False, _
     Optional KeepDebugFiles As Boolean = False, _
-    Optional ShowRscript As Boolean = False, _
     Optional UseRepo As String = "http://cran.r-project.org" _
 )
 
@@ -413,12 +412,12 @@ Next RPackage
     If InstallScript <> "" Then
         InstallScript = ( _
             "use_repo <- '" & UseRepo & "'; " & _
-            "lib_path <- Sys.getenv('R_LIBS_USER'); " & _
+            "lib_path <- paste0(Sys.getenv('R_LIBS_USER'), .Platform$file.sep); " & _
             InstallScript _
         )
         InstallResult = CaptureRscriptOutput( _
             ScriptContents:=InstallScript, _
-            RscriptVisibility:=IIf(ShowRscript = True, RsVisible, RsHidden), _
+            RscriptVisibility:=RsHidden, _
             IncludeInfo:=True, _
             PreserveDebugFiles:=KeepDebugFiles, _
             AttachLibraries:=False _
@@ -574,7 +573,7 @@ CaptureRscriptOutput = ReadLines( _
     TxtFilePath:=Path_DebugOutputTxt, _
     ToImmediate:=False, _
     ToClipboard:=False, _
-    Replace_AnyOf:="Â”Â€Ã¢ÂœÃƒ", _
+    Replace_AnyOf:="”€âœÃ", _
     Replace_With:="-" _
 ) 'Replace common tidyverse characters loaded incorrectly
 
